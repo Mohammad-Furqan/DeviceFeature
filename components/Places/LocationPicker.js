@@ -3,9 +3,11 @@ import { Colors } from "../../constants/colors";
 import OutlinedButton from "../UI/OutlinedButton";
 import {getCurrentPositionAsync,useForegroundPermissions,PermissionStatus} from 'expo-location'
 import { version } from "react/cjs/react.production.min";
+import { useNavigation } from "@react-navigation/native";
 //expo install expo-location
 function LocationPicker(){
     const [locationPermissionInformation ,requestPermission] = useForegroundPermissions();
+    const navigation = useNavigation();
 
     async function verifyPermissions(){
         if(locationPermissionInformation.status === PermissionStatus.UNDETERMINED){
@@ -31,11 +33,11 @@ function LocationPicker(){
         console.log(location);
     }
     function pickOnMapHandler(){
-
+        navigation.navigate('Map'); 
     }
 
     return (
-        <View style={{paddingBottom:30}}>
+        <View >
             <View style={styles.mapPreview}></View>
             <View style={styles.actions}>
                 <OutlinedButton icon='location' onPress={getLocationHandler}>Locate User</OutlinedButton>

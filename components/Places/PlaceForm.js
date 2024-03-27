@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Text,View,StyleSheet, TextInput, ScrollView } from "react-native";
 import { Colors } from "../../constants/colors";
+import Button from "../UI/Button";
 import ImagePicker from "./ImagePicker";
 import LocationPicker from "./LocationPicker";
 
@@ -21,6 +22,7 @@ function PlaceForm(){
             </View>
             <ImagePicker/>
             <LocationPicker/>
+            <Button>Add Place</Button>
         </ScrollView>
     );
 }
@@ -29,7 +31,10 @@ export default PlaceForm;
 const styles= StyleSheet.create({
     form:{
         flex:1,
-        padding:24,
+        // padding:24,
+        paddingHorizontal:24,
+        paddingTop:24,
+        // paddingBottom:      
         
 
     },
